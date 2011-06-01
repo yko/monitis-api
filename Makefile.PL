@@ -2,7 +2,6 @@ use inc::Module::Install;
 
 name 'Monitis';
 all_from 'lib/Monitis.pm';
-#author q{Yaroslav Korshak <ykorshak@gmail.com>};
 license 'perl';
 
 build_requires 'Test::More';
