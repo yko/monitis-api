@@ -1,7 +1,7 @@
 NAME
 
     Monitis Perl - API Perl interface for Monitis, all-in-one IT monitoring platform (http://www.monitis.com)
-    
+
 
 INSTALLATION
 
@@ -40,4 +40,8 @@ it under the same terms as Perl itself.
 
 About Monitis 
 
-Monitis is an all-in-one hosted systems monitoring platform. It provides flexible API to extend its core functionality for  monitoring anything, from anywhere and at anytime. More about Monitis API - http://monitis.com/api/api.html
+Monitis is an all-in-one hosted systems monitoring platform.
+It provides flexible API to extend its core functionality for monitoring anything,
+from anywhere and at anytime.
+
+More about Monitis API - http://monitis.com/api/api.html
