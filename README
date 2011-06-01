@@ -1,6 +1,7 @@
 NAME
 
-    Monitis - http://Monitis.com API Perl interface
+    Monitis - http://www.monitis.com API Perl interface
+    
 
 INSTALLATION
 
@@ -29,9 +30,12 @@ AUTHORS
     Yaroslav Korshak <yko@cpan.org>
     Alexandr Babenko  <foxcool@cpan.org>
 
-COPYRIGHT AND LICENCE
+
+COPYRIGHT AND LICENSE
 
 Copyright (C) 2006-2011, Monitis Inc.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
+more about Monitis API - http://monitis.com/api/api.html
