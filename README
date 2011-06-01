@@ -1,6 +1,6 @@
 NAME
 
-    Monitis - http://www.monitis.com API Perl interface
+    Monitis - Monitis (http://www.monitis.com) API Perl interface
     
 
 INSTALLATION
@@ -38,4 +38,6 @@ Copyright (C) 2006-2011, Monitis Inc.
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
-more about Monitis API - http://monitis.com/api/api.html
+About Monitis 
+
+Monitis is all-in-one <a href=monitis.com>hosted systems monitoring</a>, and it provides flexible API to extend its functionality, basically to monitoring anything, from anywhere at anytime. MOre about Monitis API - http://monitis.com/api/api.html
