@@ -16,9 +16,7 @@ sub api {
     );
 }
 
-sub agent {
-    $agent;
-}
+sub agent { $agent }
 
 sub import {
     my $class  = shift;
@@ -55,7 +53,6 @@ sub import {
         use strict;
     }
 
-    use strict;
     warnings->import;
     strict->import;
 
