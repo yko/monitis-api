@@ -11,7 +11,7 @@ use HTTP::Request::Common;
 use Digest::SHA 'hmac_sha1_base64';
 use JSON;
 
-our $VERSION = 0.7;
+our $VERSION = '0.8_1';
 
 use constant DEBUG => $ENV{MONITIS_DEBUG} || 0;
 
@@ -388,7 +388,7 @@ Monitis - Monitis.com API Perl interface
 
 =head1 VERSION
 
-This document describes Monitis version 0.7
+This document describes Monitis version 0.8_1
 
 
 =head1 SYNOPSIS
