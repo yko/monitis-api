@@ -17,7 +17,7 @@ sub get {
     return $self->api_get('agents' => $params);
 }
 
-sub get_agent_info {
+sub info {
     my ($self, @params) = @_;
 
     my @mandatory = qw/agentId/;
@@ -59,6 +59,57 @@ sub delete {
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
     return $self->api_post('deleteAgents' => $params);
+}
+
+sub download {
+    my ($self, @params) = @_;
+
+    my @mandatory = qw/platform/;
+    my @optional = qw//;
+
+    my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
+
+    my $request =
+      $self->build_post_request('downloadAgent' => $params);
+
+    my $response = $self->ua->request($request);
+
+    my $type = $response->header('Content-Type');
+
+    # Error handling
+    if ($type =~ /^text/) {
+        return $self->parse_response($response);
+    }
+    elsif (!$response->is_success) {
+        return {status => "Network error: '" . $response->status_line . "'"};
+    }
+    elsif ($type ne 'application/file') {
+        return {status => "Wrong content-type: '$type'"};
+    }
+
+    my $content = $response->decoded_content;
+    my $windows;
+
+    # Look for platform name in parameters
+    for (my $i = 0; $i <= $#$params; $i += 2) {
+        next unless $params->[$i] eq 'platform';
+        # Detect platform
+        $windows = $params->[$i + 1] =~ /^win/i;
+        last;
+    }
+
+    if (!$windows) {
+
+        # Check GZIP header for non-Windows platforms
+        return unless substr($content, 0, 2) eq chr(31) . chr(139);
+    }
+    elsif ($windows) {
+
+        # Check ZIP header for Windows platforms
+        return unless unpack 'L4', substr($content, 0, 4) == 0x04034b50;
+    }
+
+    $content;
 }
 
 __END__
@@ -108,7 +159,7 @@ Normal response is:
         }
     ]
 
-=head2 get_agent_info
+=head2 info
 
     my $response = $api->agents->get_agent_info;
 
@@ -178,6 +229,23 @@ Mandatory parameters:
 Normal response is:
 
     {"status" => "ok"}
+
+=head2 download
+
+    my $response = $api->agents->download(platform => 'linux32');
+
+    if (ref $response) {
+        die "Error: " . $response->{status};
+    }
+
+Download agent archive.
+
+Mandatory parameters:
+
+    platform - linux32, linux64, win32, Sun8632, FBSD32, FBSD64.
+
+Returns archive content in case of success.
+Otherwise returns hashref with status message.
 
 =head1 SEE ALSO
 

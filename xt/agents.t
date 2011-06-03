@@ -1,5 +1,5 @@
 use lib 't/lib';
-use Test::Monitis tests => 7, live => 1;
+use Test::Monitis tests => 8, live => 1;
 
 note 'Action agents (agents->get)';
 
@@ -11,9 +11,9 @@ SKIP: {
     my $agent_id  = $response->[0]->{id};
     my $agent_key = $response->[0]->{key};
 
-    note 'Action agentInfo (agents->get_agent_info)';
+    note 'Action agentInfo (agents->info)';
 
-    $response = api->agents->get_agent_info(agentId => $agent_id);
+    $response = api->agents->info(agentId => $agent_id);
     isa_ok $response, 'HASH', 'JSON response ok';
 
     note 'Action allAgentsSnapshot (agents->get_all_agents_snapshot)';
@@ -40,4 +40,14 @@ SKIP: {
         isa_ok $response, 'HASH', 'JSON response ok';
         is $response->{status}, 'ok', 'status ok';
     }
+}
+
+note 'Download agent (agents->download)';
+$response = api->agents->download(platform => 'linux32');
+
+if (ref $response or !$response) {
+    fail 'wrong agent response: ' . (${$response || {}}{status} || 'undef');
+}
+else {
+    pass 'response ok';
 }

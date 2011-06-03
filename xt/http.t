@@ -1,5 +1,5 @@
 use lib 't/lib';
-use Test::Monitis tests => 15, agent => 1;
+use Test::Monitis tests => 18, agent => 1;
 
 note 'Action addInternalHttpMonitor (http->add, type: POST)';
 
@@ -39,6 +39,10 @@ $response = api->http->add(
     name               => 'Google-GET',
     tag                => 'test_from_api'
 );
+
+isa_ok $response, 'HASH', 'JSON response ok';
+is $response->{status}, 'ok', 'status ok';
+like $response->{data}{testId}, qr/^\d+$/, 'API returned test id';
 
 # Cleanup
 
