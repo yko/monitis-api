@@ -318,6 +318,15 @@ sub _map_to {
     $self;
 }
 
+sub context {
+    my $self = shift;
+
+    return $self->{_typeof} unless @_;
+
+    $self->{_typeof} = shift;
+    $self;
+}
+
 sub api_key {
     my $self = shift;
 
@@ -468,6 +477,10 @@ auth_token auto-updates token, when it expires (after 24 hours).
 =head2 token_ttl
 
 Auth token time-to-live in seconds. 24 hours by default.
+
+=head2 context
+
+Context of execution
 
 =head1 METHODS
 
