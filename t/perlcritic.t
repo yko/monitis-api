@@ -1,9 +1,14 @@
 require Test::More;
-eval "use Test::Perl::Critic -profile => 't/perlcriticrc'";
-if ($@) {
-    warn $@;
-    Test::More::plan(
-        skip_all => "Test::Perl::Critic required for testing PBP compliance");
+
+eval { require Test::Perl::Critic; };
+
+if (1|| $@) {
+    my $msg = 'Test::Perl::Critic required to criticise code';
+    Test::More::plan(skip_all => $msg);
 }
 
-Test::Perl::Critic::all_critic_ok();
+my $rcfile = File::Spec->catfile('t', 'perlcriticrc');
+
+Test::Perl::Critic->import(-profile => $rcfile);
+
+all_critic_ok();
