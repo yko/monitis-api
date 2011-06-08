@@ -494,11 +494,15 @@ L<Monitis> implements following methods:
 Construct a new L<Monitis> instance.
 
 =head2 sub_accounts layout contacts predefined_monitors external_monitors
+
 =head2 itnernal_monitors agents cpu memory drive process load_average http ping
+
 =head2 transaction_monitors full_page_load_monitors
+
 =head2 visitor_trackers cloud_instances
 
 This methods switch API context to corresponding section.
+
 Please refer to documentation of corresponding package (see L<SEE ALSO>)
 and to Monitis API manual.
 
