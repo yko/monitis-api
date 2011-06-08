@@ -71,7 +71,7 @@ __END__
 
 =head1 NAME
 
-Monitis::Layout - [One line description of module's purpose here]
+Monitis::Layout - Layout manipulation
 
 =head1 SYNOPSIS
 

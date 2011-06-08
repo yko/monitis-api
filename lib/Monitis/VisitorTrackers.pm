@@ -38,7 +38,7 @@ __END__
 
 =head1 NAME
 
-Monitis::VisitorTrackers - [One line description of module's purpose here]
+Monitis::VisitorTrackers - Visitors tracking info
 
 =head1 SYNOPSIS
 

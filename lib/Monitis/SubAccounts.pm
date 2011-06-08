@@ -63,7 +63,7 @@ __END__
 
 =head1 NAME
 
-Monitis::SubAccounts - [One line description of module's purpose here]
+Monitis::SubAccounts - Sub-accounts manipulation
 
 =head1 SYNOPSIS
 

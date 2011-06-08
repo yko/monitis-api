@@ -76,7 +76,7 @@ __END__
 
 =head1 NAME
 
-Monitis::CPU - [One line description of module's purpose here]
+Monitis::CPU - Predefined internal CPU monitors manipulation
 
 =head1 SYNOPSIS
 

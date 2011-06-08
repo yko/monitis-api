@@ -78,7 +78,7 @@ __END__
 
 =head1 NAME
 
-Monitis::Memory - [One line description of module's purpose here]
+Monitis::Memory - Predefined internal memory monitors manipulation
 
 =head1 SYNOPSIS
 

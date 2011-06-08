@@ -89,7 +89,7 @@ __END__
 
 =head1 NAME
 
-Monitis::CustomMonitors - [One line description of module's purpose here]
+Monitis::CustomMonitors - Custom monitors manipulation
 
 =head1 SYNOPSIS
 

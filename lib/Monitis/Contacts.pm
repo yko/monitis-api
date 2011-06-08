@@ -102,7 +102,7 @@ __END__
 
 =head1 NAME
 
-Monitis::Contacts - [One line description of module's purpose here]
+Monitis::Contacts - Contacts manipulation
 
 =head1 SYNOPSIS
 

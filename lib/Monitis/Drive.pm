@@ -76,7 +76,7 @@ __END__
 
 =head1 NAME
 
-Monitis::Drive - [One line description of module's purpose here]
+Monitis::Drive - Predefined internal drive monitors manipulation
 
 =head1 SYNOPSIS
 

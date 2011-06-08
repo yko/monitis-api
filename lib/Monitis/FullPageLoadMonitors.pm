@@ -65,7 +65,7 @@ __END__
 
 =head1 NAME
 
-Monitis::FullPageLoadMonitors - [One line description of module's purpose here]
+Monitis::FullPageLoadMonitors - Full page load monitors manipulation
 
 =head1 SYNOPSIS
 

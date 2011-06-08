@@ -67,7 +67,7 @@ __END__
 
 =head1 NAME
 
-Monitis::Ping - [One line description of module's purpose here]
+Monitis::Ping - Predefined internal ping monitors manipulation
 
 =head1 SYNOPSIS
 

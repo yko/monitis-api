@@ -105,7 +105,7 @@ __END__
 
 =head1 NAME
 
-Monitis::TransactionMonitors - [One line description of module's purpose here]
+Monitis::TransactionMonitors - Transaction monitors manipulation
 
 =head1 SYNOPSIS
 

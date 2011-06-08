@@ -142,7 +142,7 @@ __END__
 
 =head1 NAME
 
-Monitis::ExternalMonitors - [One line description of module's purpose here]
+Monitis::ExternalMonitors - External monitors manipulation
 
 =head1 SYNOPSIS
 

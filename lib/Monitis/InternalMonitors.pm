@@ -32,7 +32,7 @@ __END__
 
 =head1 NAME
 
-Monitis::InternalMonitors - [One line description of module's purpose here]
+Monitis::InternalMonitors - Internal monitors manipulation
 
 =head1 SYNOPSIS
 

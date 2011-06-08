@@ -80,7 +80,7 @@ __END__
 
 =head1 NAME
 
-Monitis::LoadAverage - [One line description of module's purpose here]
+Monitis::LoadAverage - Predefined internal load average monitors manipulation
 
 =head1 SYNOPSIS
 

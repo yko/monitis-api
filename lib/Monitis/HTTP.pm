@@ -68,7 +68,7 @@ __END__
 
 =head1 NAME
 
-Monitis::HTTP - [One line description of module's purpose here]
+Monitis::HTTP - Predefined internal HTTP monitors manipulation
 
 =head1 SYNOPSIS
 

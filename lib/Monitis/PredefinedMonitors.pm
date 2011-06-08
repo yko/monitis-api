@@ -22,7 +22,7 @@ __END__
 
 =head1 NAME
 
-Monitis::PredefinedMonitors - [One line description of module's purpose here]
+Monitis::PredefinedMonitors - Custom monitors info
 
 =head1 SYNOPSIS
 

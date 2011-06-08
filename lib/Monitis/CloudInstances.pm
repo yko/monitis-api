@@ -32,7 +32,7 @@ __END__
 
 =head1 NAME
 
-Monitis::CloudInstances - [One line description of module's purpose here]
+Monitis::CloudInstances - Cloud instnces monitors info
 
 =head1 SYNOPSIS
 

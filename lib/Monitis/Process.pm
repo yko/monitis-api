@@ -68,7 +68,7 @@ __END__
 
 =head1 NAME
 
-Monitis::Process - [One line description of module's purpose here]
+Monitis::Process - Predefined internal process monitors manipulation
 
 =head1 SYNOPSIS
 

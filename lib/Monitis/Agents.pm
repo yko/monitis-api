@@ -65,7 +65,7 @@ __END__
 
 =head1 NAME
 
-Monitis::Agents - [One line description of module's purpose here]
+Monitis::Agents - Agents manipulation
 
 =head1 SYNOPSIS
 
