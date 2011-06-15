@@ -141,6 +141,7 @@ sub fill_config {
     $opts->{pidfile}    = catfile($opts->{'home'}, 'logs', 'monitis.pid');
     $opts->{executable} = catfile($opts->{'home'}, 'bin',  'monitis');
     $opts->{conf}       = catfile($opts->{'home'}, 'etc',  'monitis.conf');
+    $opts->{host} ||= 'google.com';
 }
 
 sub download_agent {
@@ -374,7 +375,7 @@ sub setup_monitors {
         passAuth           => '',
         timeout            => 3000,
         redirect           => 1,
-        url                => 'google.com',
+        url                => $opts{host},
         name               => $opts{name} . "_HTTP_monitor",
         tag                => $tag,
     );
@@ -387,7 +388,7 @@ sub setup_monitors {
         packetsCount => 5,
         packetsSize  => 32,
         timeout      => 20000,
-        url          => 'google.com',
+        url          => $opts{host},
         name         => $opts{name} . "_Ping_monitor",
         tag          => $tag,
     );
