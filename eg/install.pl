@@ -47,6 +47,7 @@ $opts{config} ||= 'monitis.conf';
 
 if (open my $CONFIG, '<', $opts{config}) {
     while (my $line = <$CONFIG>) {
+        chomp $line;
         my ($key, $value) = split /\s+/, $line, 2;
         $opts{$key} ||= $value;
     }

@@ -11,6 +11,11 @@ build_requires 'HTTP::Request::Common';
 build_requires 'Digest::SHA';
 build_requires 'JSON';
 build_requires 'LWP::UserAgent';
+build_requires 'File::Spec';
+build_requires 'File::Temp';
+build_requires 'File::Path';
+build_requires 'IPC::Open3';
+build_requires 'Symbol';
 
 resources
   license    => "http://dev.perl.org/licenses",

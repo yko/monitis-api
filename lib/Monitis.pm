@@ -397,7 +397,7 @@ Monitis - Monitis.com API Perl interface
 
 =head1 VERSION
 
-This document describes Monitis version 0.8_1
+This document describes Monitis version 0.8_2
 
 
 =head1 SYNOPSIS
@@ -407,7 +407,7 @@ This document describes Monitis version 0.8_1
     my $api =
       Monitis->new(sekret_key => $SECRET_KEY, api_key => $API_KEY);
 
-    # Create subaccount, see L<Monitis::SubAccounts>
+    # Create subaccount, see Monitis::SubAccounts
     my $response = $api->sub_accounts->add(
         firstName => 'John',
         lastName  => 'Smith',
@@ -419,7 +419,7 @@ This document describes Monitis version 0.8_1
     die "Failed to create account: $response->{status}"
       unless $response->{status} eq 'ok';
 
-    # Add memory monitor, see L<Monitis::Memory>
+    # Add memory monitor, see Monitis::Memory
     $response = $api->memory->add(
         agentkey      => 'test-agent',
         name          => 'memory_monitor',
