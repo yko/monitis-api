@@ -20,7 +20,7 @@ foreach my $package ('JSON', 'Digest::SHA', 'Monitis', 'Archive::Extract') {
         if ($@ =~ /^Can't locate/) {
             die
               "To run this script you need package '$package' installed. Try:\n\n"
-              . "    cpan install $package";
+              . "    cpan install $package\n";
         }
 
         die $@;
