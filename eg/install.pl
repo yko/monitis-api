@@ -419,23 +419,38 @@ sub cleanup {
 
 sub check_deps {
 
-    # libssl
-    unless (</usr/lib/libssl.so*> || </lib/libssl.so*>) {
-        warn <<END;
+    my @files = (
+        "libssl.so",        "libssl.so.0.9.8",
+        "libssl.so.0.9.7",  "libssl.so.0.9.7a",
+        "libssl.so.0.9.7b", "libssl.so.0.9.7c",
+        "libssl.so.0.9.8a", "libssl.so.0.9.8b",
+        "libssl.so.0.9.8c", "libssl.so.0.9.8e"
+    );
+
+    my $libssl;
+
+  DIR: foreach my $dir ('/usr/lib', '/lib') {
+        foreach my $file (@files) {
+            if (-f "$dir/$file") {
+                $libssl = "$dir/$file";
+                last DIR;
+            }
+        }
+    }
+
+    warn <<END unless $libssl;
+
    ATTENTION
 
-   libssl not installed
-   You need to install it
-END
-    }
-    elsif (!-f '/usr/lib/libssl.so' && !-f '/lib/libssl.so.0.9.7') {
-        warn <<END;
-   ATTENTION
+   Looks like libssl is not installed.
+   You need to install it.
+   Or yo may need to create a symbolic link to your libssl.so:
 
-   you may need to symlinc your libssl.so to /lib/libssl.so.0.9.7
-   see agents's doc/README
+        ln -s /lib/libssl.so.0.9.7 /usr/lib/libssl.so
+
+   See agents's doc/README for details
+
 END
-    }
 }
 
 __END__
