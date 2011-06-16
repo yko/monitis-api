@@ -41,6 +41,8 @@ GetOptions(
 
 pod2usage if $opts{help};
 
+check_deps();
+
 # Read config file
 $opts{mandatory_config} = !!$opts{config};
 $opts{config} ||= 'monitis.conf';
@@ -412,6 +414,27 @@ sub cleanup {
     if ('yes' =~ /^\Q$answer\E/i) {
         unlink $file or die "\nUnable to remove config file '$file': $!\n";
         print "\nConfig '$file' was successfully removed\n";
+    }
+}
+
+sub check_deps {
+
+    # libssl
+    unless (</usr/lib/libssl.so*> || </lib/libssl.so*>) {
+        warn <<END;
+   ATTENTION
+
+   libssl not installed
+   You need to install it
+END
+    }
+    elsif (!-f '/usr/lib/libssl.so' && !-f '/lib/libssl.so.0.9.7') {
+        warn <<END;
+   ATTENTION
+
+   you may need to symlinc your libssl.so to /lib/libssl.so.0.9.7
+   see agents's doc/README
+END
     }
 }
 
