@@ -1,8 +1,8 @@
 Revision history for Monitis
 
-0.8_3   Wed Jun 15 19:06:50 2011
+0.8_3   Sun Jun 19 13:22:17 2011
         new agents->download method
-        eg/install.pl agent installator
+        monitis-agent-install installator
 
 0.8_1   Thu Jun 02 00:40:47 2011
         First CPAN developer release

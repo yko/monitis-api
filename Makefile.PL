@@ -22,6 +22,8 @@ resources
   homepage   => "http://monitis.com/api/api.html",
   repository => "https://github.com/monitisexchange/Perl-SDK",
 
+install_script 'monitis-agent-install';
+
 auto_install;
 
 WriteAll;
