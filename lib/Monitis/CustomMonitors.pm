@@ -6,7 +6,7 @@ require Carp;
 
 use base 'Monitis';
 
-sub api_url { 'http://www.monitis.com/customMonitorApi' }
+sub api_url {'http://www.monitis.com/customMonitorApi'}
 
 sub add {
     my ($self, @params) = @_;

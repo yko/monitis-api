@@ -57,10 +57,10 @@ sub get_pages {
 }
 
 sub get_page_modules {
-    my ( $self, @params ) = @_;
+    my ($self, @params) = @_;
 
     my @mandatory = qw/pageName/;
-    my @optional = qw//;
+    my @optional  = qw//;
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 

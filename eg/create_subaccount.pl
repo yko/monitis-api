@@ -13,10 +13,10 @@ my $result = GetOptions(
     "api-key=s"    => \$opts->{api},
     "secret-key=s" => \$opts->{secret},
     "first-name=s" => \$opts->{first},
-    "last-name=s" => \$opts->{last},
-    "mail=s" => \$opts->{email},
-    "password=s" => \$opts->{password},
-    "group=s" => \$opts->{group},
+    "last-name=s"  => \$opts->{last},
+    "mail=s"       => \$opts->{email},
+    "password=s"   => \$opts->{password},
+    "group=s"      => \$opts->{group},
 );
 
 unless ($opts->{api} && $opts->{secret}) {

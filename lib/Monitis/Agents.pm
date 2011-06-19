@@ -65,12 +65,11 @@ sub download {
     my ($self, @params) = @_;
 
     my @mandatory = qw/platform/;
-    my @optional = qw//;
+    my @optional  = qw//;
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
-    my $request =
-      $self->build_post_request('downloadAgent' => $params);
+    my $request = $self->build_post_request('downloadAgent' => $params);
 
     my $response = $self->ua->request($request);
 
@@ -93,6 +92,7 @@ sub download {
     # Look for platform name in parameters
     for (my $i = 0; $i <= $#$params; $i += 2) {
         next unless $params->[$i] eq 'platform';
+
         # Detect platform
         $windows = $params->[$i + 1] =~ /^win/i;
         last;

@@ -35,7 +35,7 @@ if ($param =~ /^\d+$/) {
 }
 
 # Make sure we have at least empty string
-$param ||='';
+$param ||= '';
 
 # Get all subaccounts and find one matching our email
 my $accounts = $api->sub_accounts->get;

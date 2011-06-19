@@ -27,4 +27,4 @@ SKIP: {
 
     isa_ok $response, 'HASH', 'JSON response ok';
     is $response->{id}, $id;
-};
+}

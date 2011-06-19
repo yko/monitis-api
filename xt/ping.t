@@ -69,8 +69,7 @@ isa_ok $response->{data}, 'ARRAY', 'response data ok';
 
 note 'Cleanup';
 
-$response =
-  api->internal_monitors->delete(testIds => $monitor_id, type => 5);
+$response = api->internal_monitors->delete(testIds => $monitor_id, type => 5);
 
 isa_ok $response, 'HASH', 'JSON response ok';
 is $response->{status}, 'ok', 'monitor deleted';

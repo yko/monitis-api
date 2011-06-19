@@ -48,8 +48,7 @@ sub new {
     my $class = shift;
     my $self  = {@_};
 
-    $self->{ua}
-      ||= LWP::UserAgent->new(agent => "perl-monitis-api/$VERSION");
+    $self->{ua} ||= LWP::UserAgent->new(agent => "perl-monitis-api/$VERSION");
 
     $self->{json} ||= JSON->new;
 

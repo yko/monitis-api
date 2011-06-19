@@ -20,8 +20,9 @@ sub add {
 sub edit {
     my ($self, @params) = @_;
 
-    my @mandatory = qw/monitorId name tag locationIds checkInterval url timeout/;
-    my @optional  = qw/uptimeSLA responseSLA /;
+    my @mandatory =
+      qw/monitorId name tag locationIds checkInterval url timeout/;
+    my @optional = qw/uptimeSLA responseSLA /;
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 

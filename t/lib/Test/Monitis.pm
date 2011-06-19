@@ -16,7 +16,7 @@ sub api {
     );
 }
 
-sub agent { $agent }
+sub agent {$agent}
 
 sub import {
     my $class  = shift;

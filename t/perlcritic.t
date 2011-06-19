@@ -2,7 +2,7 @@ require Test::More;
 
 eval { require Test::Perl::Critic; };
 
-if (1|| $@) {
+if (1 || $@) {
     my $msg = 'Test::Perl::Critic required to criticise code';
     Test::More::plan(skip_all => $msg);
 }

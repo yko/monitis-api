@@ -2,7 +2,7 @@ use lib 't/lib';
 use Test::Monitis;
 require HTTP::Response;
 
-plan tests => 7 + scalar(keys %{$Monitis::MAPPING})*2;
+plan tests => 7 + scalar(keys %{$Monitis::MAPPING}) * 2;
 
 my $api = new_ok 'Monitis';
 
@@ -18,7 +18,7 @@ END
 
 my $json = $api->parse_response($response);
 
-is_deeply $json, {foo => 'bar', baz => [1,2,3]}, 'parse_response works';
+is_deeply $json, {foo => 'bar', baz => [1, 2, 3]}, 'parse_response works';
 
 # Set fake keys
 $api->api_key('API_KEY');
