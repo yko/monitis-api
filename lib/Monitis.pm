@@ -492,15 +492,38 @@ L<Monitis> implements following methods:
 
 Construct a new L<Monitis> instance.
 
-=head2 sub_accounts layout contacts predefined_monitors external_monitors
+=head2 context methods
 
-=head2 itnernal_monitors agents cpu memory drive process load_average http ping
+=head3 sub_accounts layout contacts predefined_monitors external_monitors
 
-=head2 transaction_monitors full_page_load_monitors
+=head3 itnernal_monitors agents cpu memory drive process load_average http ping
 
-=head2 visitor_trackers cloud_instances
+=head3 transaction_monitors full_page_load_monitors
+
+=head3 visitor_trackers cloud_instances
 
 This methods switch API context to corresponding section.
+There's map of available contexts and corresponding packages:
+
+    sub_accounts            =>    Monitis::SubAccounts
+    layout                  =>    Monitis::Layout
+    contacts                =>    Monitis::Contacts
+    predefined_monitors     =>    Monitis::PredefinedMonitors
+    external_monitors       =>    Monitis::ExternalMonitors
+    internal_monitors       =>    Monitis::InternalMonitors
+    agents                  =>    Monitis::Agents
+    cpu                     =>    Monitis::CPU
+    memory                  =>    Monitis::Memory
+    drive                   =>    Monitis::Drive
+    process                 =>    Monitis::Process
+    load_average            =>    Monitis::LoadAverage
+    http                    =>    Monitis::HTTP
+    ping                    =>    Monitis::Ping
+    transaction_monitors    =>    Monitis::TransactionMonitors
+    custom_monitors         =>    Monitis::CustomMonitors
+    full_page_load_monitors =>    Monitis::FullPageLoadMonitors
+    visitor_trackers        =>    Monitis::VisitorTrackers
+    cloud_instances         =>    Monitis::CloudInstances
 
 Please refer to documentation of corresponding package (see L<SEE ALSO>)
 and to Monitis API manual.
@@ -575,10 +598,9 @@ Requires api_secret to be set.
 =head1 SEE ALSO
 
 L<Monitis::SubAccounts> L<Monitis::Layout>
-L<Monitis::Layout> L<Monitis::Contacts>
-L<Monitis::PredefinedMonitors> L<Monitis::ExternalMonitors>
-L<Monitis::InternalMonitors> L<Monitis::Agents>
-L<Monitis::CPU> L<Monitis::Memory>
+L<Monitis::Contacts> L<Monitis::PredefinedMonitors>
+L<Monitis::ExternalMonitors> L<Monitis::InternalMonitors>
+L<Monitis::Agents> L<Monitis::CPU> L<Monitis::Memory>
 L<Monitis::Drive> L<Monitis::Process>
 L<Monitis::LoadAverage> L<Monitis::HTTP>
 L<Monitis::Ping>
@@ -591,15 +613,14 @@ Official API page: L<http://monitis.com/api/api.html>
 
 =head1 BUGS AND LIMITATIONS
 
-Please report any bugs or feature requests to
-C<bug-www-monitis-api@rt.cpan.org>, or through the web interface at
-L<http://rt.cpan.org>, or at Github
+Please report any bugs or feature requests at Github
 L<https://github.com/monitisexchange/Perl-SDK/issues>.
 
 
 =head1 AUTHORS
 
 Yaroslav Korshak  C<< <yko@cpan.org> >>
+
 Alexandr Babenko  C<< <foxcool@cpan.org> >>
 
 
