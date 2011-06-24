@@ -457,11 +457,11 @@ __END__
 
 =head1 NAME
 
-install.pl - install Monitis API Agent on Linux servers
+monitis-agent-install - install Monitis API Agent on Linux servers
 
 =head1 SYNOPSIS
 
-install.pl [OPTIONS]
+monitis-agent-install [OPTIONS]
 
     Options:
     --api-key           Your API key

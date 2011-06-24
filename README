@@ -28,6 +28,7 @@ DEPENDENCIES
 AUTHORS
 
     Yaroslav Korshak <yko@cpan.org>
+
     Alexandr Babenko  <foxcool@cpan.org>
 
 
@@ -38,7 +39,7 @@ Copyright (C) 2006-2011, Monitis Inc.
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
-About Monitis 
+About Monitis
 
 Monitis is an all-in-one hosted systems monitoring platform.
 It provides flexible API to extend its core functionality for monitoring anything,

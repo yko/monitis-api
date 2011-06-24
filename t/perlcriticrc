@@ -1,5 +1,5 @@
 verbose = 6
-include = WWW::Monitis::API
+include = Monitis
 
 [BuiltinFunctions::ProhibitStringyEval]
 allow_includes = 1
