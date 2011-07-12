@@ -85,11 +85,8 @@ note 'Action deleteFullPageLoadMonitor (full_page_load_monitors->delete)';
 SKIP: {
     skip "Monitor ID required for this test", 2 unless $test_id;
 
-    $response = api->full_page_load_monitors->delete(monitorIds => $test_id);
+    $response = api->full_page_load_monitors->delete(monitorId => $test_id);
 
     isa_ok $response, 'HASH', 'JSON response ok';
-  TODO: {
-        local $TODO = 'This action is not implemented by Monitis yet';
-        is $response->{status}, 'ok', 'status ok';
-    }
+    is $response->{status}, 'ok', 'status ok';
 }

@@ -26,7 +26,7 @@ sub edit {
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
-    return $self->api_post('addFullPageLoadMonitor' => $params);
+    return $self->api_post('editFullPageLoadMonitor' => $params);
 }
 
 sub suspend {

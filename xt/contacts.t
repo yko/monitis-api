@@ -23,9 +23,9 @@ my $confirmation_key = $response->{data}{confirmationKey};
 
 note 'Action confirmContact (contacts->confirm)';
 
-$response = api->contacts->edit(
+$response = api->contacts->confirm(
     contactId => $contact_id,
-    lastName  => 'Smith'
+    confirmationKey => $confirmation_key
 );
 
 isa_ok $response, 'HASH', 'JSON response ok';

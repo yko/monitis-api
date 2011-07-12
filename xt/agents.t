@@ -7,7 +7,7 @@ my $response = api->agents->get;
 isa_ok $response, 'ARRAY', 'JSON response ok';
 
 SKIP: {
-    skip 'No Monitis aggents found!', 5 unless @$response;
+    skip 'No Monitis aggents found!', 6 unless @$response;
     my $agent_id  = $response->[0]->{id};
     my $agent_key = $response->[0]->{key};
 
