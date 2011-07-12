@@ -43,25 +43,21 @@ my $module_id = $response->{data}{pageModuleId};
 note 'Action pageModules #' . $page_id;
 
 $response =
-  eval { api->layout->get_page_modules(pageName => $unique_page_name) } || [];
-
-$response->[0]{id} = $@ if $@;
+  api->layout->get_page_modules(pageName => $unique_page_name);
 
 isa_ok $response, 'ARRAY', 'JSON response ok';
 
-TODO: {
-    local $TODO =
-      'Make sure Monitis fixed "Malformed JSON string" but in pageModules method';
-
-    like $response->[0]{id}, qr/^\d+$/, 'Right ID';
-}
+like $response->[0]{id}, qr/^\d+$/, 'Right ID';
 
 note 'Action deletePageModule #' . $page_id;
+SKIP: {
+    skip 'Module_id required for this test', 2 unless $module_id;
 
-$response = api->layout->delete_page_module(pageModuleId => $module_id);
+    $response = api->layout->delete_page_module(pageModuleId => $module_id);
 
-isa_ok $response, 'HASH', 'JSON response ok';
-is $response->{status}, 'ok', 'status ok';
+    isa_ok $response, 'HASH', 'JSON response ok';
+    is $response->{status}, 'ok', 'status ok';
+}
 
 note 'Action deletePage #' . $page_id;
 
