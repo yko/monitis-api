@@ -1,10 +1,10 @@
 use lib 't/lib';
 use Test::Monitis tests => 1, live => 1;
 
-note 'Action report (internal_monitors->get_monitor_info)';
+note 'Action report (predefined_monitors->custom_report)';
 
 my $response = api->predefined_monitors->custom_report(
-    type   => 'cpu',
+    type   => 'external',
     period => 'Last30Days'
 );
 

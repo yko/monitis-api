@@ -18,56 +18,62 @@ like $response->{data}{testId}, qr/^\d+$/, 'API returned test id';
 my $monitor_id = $response->{data}{testId};
 
 note 'Action editDriveMonitor (drive->edit)';
+SKIP: {
 
-$response = api->drive->edit(
-    testId    => $monitor_id,
-    freeLimit => '9',
-    name      => 'testdrive',
-    tag       => 'test'
-);
+    skip "Monitor id required for this test", 10,
+      unless $monitor_id;
 
-isa_ok $response, 'HASH', 'JSON response ok';
-is $response->{status}, 'ok', 'status ok';
+    $response = api->drive->edit(
+        testId    => $monitor_id,
+        freeLimit => '9',
+        name      => 'testdrive',
+        tag       => 'test'
+    );
 
-note 'Action agentDrive (drive->get)';
+    isa_ok $response, 'HASH', 'JSON response ok';
+    is $response->{status}, 'ok', 'status ok';
 
-$response = api->drive->get(agentId => agent->{id});
+    note 'Action agentDrive (drive->get)';
 
-isa_ok $response, 'ARRAY', 'JSON response ok';
+    $response = api->drive->get(agentId => agent->{id});
 
-my ($exists) =
-  grep { $_->{id} == $monitor_id } @$response;
-ok $exists, 'monitor ' . $monitor_id . ' exists';
+    isa_ok $response, 'ARRAY', 'JSON response ok';
 
-$monitor_id ||= $response->[0]{id};
+    my ($exists) =
+      grep { $_->{id} == $monitor_id } @$response;
+    ok $exists, 'monitor ' . $monitor_id . ' exists';
 
-note 'Action DriveInfo (drive->get_info)';
+    $monitor_id ||= $response->[0]{id};
 
-$response = api->drive->get_info(monitorId => $monitor_id);
+    note 'Action DriveInfo (drive->get_info)';
 
-isa_ok $response, 'HASH', 'JSON response ok';
-is $response->{id}, $monitor_id, 'response id ok';
+    $response = api->drive->get_info(monitorId => $monitor_id);
 
-note 'Action driveResult (drive->get_results)';
+    isa_ok $response, 'HASH', 'JSON response ok';
+    is $response->{id}, $monitor_id, 'response id ok';
 
-$response = api->drive->get_results(
-    monitorId => $monitor_id,
-    day       => (localtime)[3],
-    month     => (localtime)[4] + 1,
-    year      => (localtime)[5] + 1900
-);
+    note 'Action driveResult (drive->get_results)';
 
-isa_ok $response, 'ARRAY', 'JSON response ok';
+    $response = api->drive->get_results(
+        monitorId => $monitor_id,
+        day       => (localtime)[3],
+        month     => (localtime)[4] + 1,
+        year      => (localtime)[5] + 1900
+    );
 
-note 'Action topdrive (drive->get_top_results)';
+    isa_ok $response, 'ARRAY', 'JSON response ok';
 
-$response = api->drive->get_top_results;
+    note 'Action topdrive (drive->get_top_results)';
 
-isa_ok $response, 'HASH', 'JSON response ok';
+    $response = api->drive->get_top_results;
 
-note 'Cleanup';
+    isa_ok $response, 'HASH', 'JSON response ok';
 
-$response = api->internal_monitors->delete(testIds => $monitor_id, type => 2);
+    note 'Cleanup';
 
-isa_ok $response, 'HASH', 'JSON response ok';
-is $response->{status}, 'ok', 'monitor deleted';
+    $response =
+      api->internal_monitors->delete(testIds => $monitor_id, type => 2);
+
+    isa_ok $response, 'HASH', 'JSON response ok';
+    is $response->{status}, 'ok', 'monitor deleted';
+}
