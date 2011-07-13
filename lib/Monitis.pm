@@ -120,7 +120,7 @@ sub api_get {
     my $response = $self->ua->request($request);
 
     warn "GET<\n" if DEBUG;
-    warn $response->decoded_content if DEBUG;
+    warn $response->decoded_content . "\n" if DEBUG;
 
     $self->parse_response($response);
 
@@ -131,12 +131,12 @@ sub api_post {
     my $request = $self->build_post_request(@_);
 
     warn "POST>\n" if DEBUG;
-    warn $request->as_string if DEBUG;
+    warn $request->as_string . "\n" if DEBUG;
 
     my $response = $self->ua->request($request);
 
     warn "POST<\n" if DEBUG;
-    warn $response->decoded_content if DEBUG;
+    warn $response->decoded_content . "\n" if DEBUG;
 
     $self->parse_response($response);
 }
