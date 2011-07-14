@@ -20,7 +20,7 @@ build_requires 'Symbol';
 resources
   license    => "http://dev.perl.org/licenses",
   homepage   => "http://monitis.com/api/api.html",
-  repository => "https://github.com/monitisexchange/Perl-SDK",
+  repository => "https://github.com/monitisexchange/Perl-SDK";
 
 install_script 'monitis-agent-install';
 
