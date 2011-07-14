@@ -18,6 +18,73 @@ sub custom_report {
     return $self->api_get('report' => $params);
 }
 
+sub top_external {
+    shift->_top_by_type('topexternal', @_);
+}
+
+sub top_cpu {
+    shift->_top_by_type('topcpu', @_);
+}
+
+sub top_drive {
+    shift->_top_by_type('topdrive', @_);
+}
+
+sub top_memory {
+    shift->_top_by_type('topmemory', @_);
+}
+
+sub top_load1 {
+    shift->_top_by_type('topload1', @_);
+}
+
+sub top_load5 {
+    shift->_top_by_type('topload5', @_);
+}
+
+sub top_load15 {
+    shift->_top_by_type('topload15', @_);
+}
+
+sub top_internal_http {
+    shift->_top_by_type('topInternalHTTP', @_);
+}
+
+sub top_internal_ping {
+    shift->_top_by_type('topInternalPing', @_);
+}
+
+sub top_transaction {
+    shift->_top_by_type('topTransaction', @_);
+}
+
+sub top_fullpage {
+    shift->_top_by_type('topFullpage', @_);
+}
+
+sub top_process_by_cpu_usage {
+    shift->_top_by_type('topProcessByCPUUsage', @_);
+}
+
+sub top_process_by_memory_usage {
+    shift->_top_by_type('topProcessByMemoryUsage', @_);
+}
+
+sub top_process_by_virt_memory_usage {
+    shift->_top_by_type('topProcessByVirtMemoryUsage', @_);
+}
+
+sub _top_by_type {
+    my ($self, $type, @params) = @_;
+
+    my @mandatory = qw//;
+    my @optional  = qw/timezoneoffset limit tag/;
+
+    my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
+
+    $self->api_get($type => $params);
+}
+
 __END__
 
 =head1 NAME
