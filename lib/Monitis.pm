@@ -39,7 +39,8 @@ our $MAPPING = {
     custom_monitors         => 'CustomMonitors',
     full_page_load_monitors => 'FullPageLoadMonitors',
     visitor_trackers        => 'VisitorTrackers',
-    cloud_instances         => 'CloudInstances'
+    cloud_instances         => 'CloudInstances',
+    top_results             => 'TopResults',
 };
 
 our $MAPPING_LOADED = {};
@@ -245,12 +246,12 @@ sub AUTOLOAD {
     my $self = shift;
     my ($package, $method) = our $AUTOLOAD =~ /^([\w\:]+)\:\:(\w+)$/;
 
-    # Map instance to certain package
-    if (exists $MAPPING->{$method}) {
-        return $self->_map_to($MAPPING->{$method});
-    }
-
     unless ($self->{_typeof} && $self->{_typeof}->can($method)) {
+
+        # Map instance to certain package
+        if (exists $MAPPING->{$method}) {
+            return $self->_map_to($MAPPING->{$method});
+        }
         Carp::croak qq/Can't locate object method "$method" via "$package"/;
     }
 
