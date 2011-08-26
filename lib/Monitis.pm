@@ -11,7 +11,7 @@ use HTTP::Request::Common;
 use Digest::SHA 'hmac_sha1_base64';
 use JSON;
 
-our $VERSION = '0.9';
+our $VERSION = '0.92';
 
 use constant DEBUG => $ENV{MONITIS_DEBUG} || 0;
 
