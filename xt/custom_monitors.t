@@ -6,7 +6,8 @@ note 'Action addMonitor (custom_monitors->add)';
 my $response = api->custom_monitors->add(
     resultParams => 'position:Position:N/A:2;difference:Difference:N/A:3;',
     name         => 'simple_custom_monitor',
-    tag          => 'test'
+    tag          => 'test',
+    type         => 'foo'
 );
 
 isa_ok $response, 'HASH', 'JSON response ok';
@@ -16,7 +17,7 @@ like $response->{data}, qr/^\d+$/, 'data ok';
 my $id = $response->{data};
 
 note 'Action getMonitor (custom_monitors->get)';
-$response = api->custom_monitors->get;
+$response = api->custom_monitors->get(type => 'foo');
 
 isa_ok $response, 'ARRAY', 'JSON response ok';
 ok @$response > 0, 'Monitor added';

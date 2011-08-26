@@ -12,7 +12,8 @@ sub add {
     my ($self, @params) = @_;
 
     my @mandatory = qw/name tag resultParams/;
-    my @optional  = qw/monitorParams/;
+    my @optional = qw/monitorParams additionalResultParams
+      type customUserAgentId type/;
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
@@ -34,7 +35,7 @@ sub get {
     my ($self, @params) = @_;
 
     my @mandatory = qw//;
-    my @optional  = qw/tag/;
+    my @optional  = qw/tag type/;
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
@@ -125,7 +126,7 @@ Mandatory parameters:
 
 Optional parameters:
 
-    monitorParams
+    monitorParams additionalResultParams type customUserAgentId
 
 Normal response is:
 
@@ -165,7 +166,7 @@ Get monitors list.
 
 Optional parameters:
 
-    tag
+    tag type
 
 Response:
 
