@@ -27,7 +27,7 @@ sub get {
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
-    return $self->api_post(getNotificationRules => $params);
+    return $self->api_get(getNotificationRules => $params);
 }
 
 sub delete {

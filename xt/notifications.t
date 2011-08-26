@@ -52,13 +52,10 @@ $response = api->notifications->get(
     monitorType => "custom"
 );
 
-TODO: {
-    local $TODO = "Bug in API. Will be fixed soon";
 SKIP: {
     isa_ok $response, 'ARRAY' or skip "Wrong response", 1;
     like $response->[0]->{monitorId}, qr/^\d+$/;
 };
-}
 
 $response = api->notifications->delete(
     monitorId   => $id,
