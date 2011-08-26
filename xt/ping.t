@@ -1,3 +1,5 @@
+use strict;
+use warnings;
 use lib 't/lib';
 
 use Test::Monitis agent => 1, tests => 13;
