@@ -86,6 +86,37 @@ sub delete {
     return $self->api_post('deleteMonitor' => $params);
 }
 
+sub add_additional_results {
+    my ($self, @params) = @_;
+
+    my @mandatory = qw/monitorId checktime results/;
+    my @optional  = qw//;
+
+    my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
+
+    # Allow user to pass params in Perl structure
+    for (my $i = 0; $i + 1 <= $#$params; $i += 2) {
+        if ($params->[$i] eq 'results') {
+            if (ref $params->[$i+1]) {
+                $params->[$i + 1] = $self->json->encode($params->[$i + 1]);
+            }
+        }
+    }
+
+    return $self->api_post('addAdditionalResults' => $params);
+}
+
+sub get_additional_results {
+    my ($self, @params) = @_;
+
+    my @mandatory = qw/monitorId checktime/;
+    my @optional  = qw//;
+
+    my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
+
+    return $self->api_get('getAdditionalResults' => $params);
+}
+
 __END__
 
 =head1 NAME

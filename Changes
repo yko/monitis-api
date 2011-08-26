@@ -1,6 +1,6 @@
 Revision history for Monitis
 
-0.92    Fri Aug 26 14:31:13 2011
+0.92    Fri Aug 26 15:32:17 2011
         New optional parameters for external_monitors->add:
             uptimeSLA, responseSLA, basicAuthUser, basicAuthPass
         New optional parameters for external_monitors->exit:
@@ -12,6 +12,8 @@ Revision history for Monitis
             type, additionalResultParams, customUserAgentId
         New optional parameter for custom_monitors->get:
             type
+        New actions in CustomMonitors:
+            get_additional_results, add_additional_results
 
 0.91    Wed Jul 13 11:59:54 2011
         improved live tests

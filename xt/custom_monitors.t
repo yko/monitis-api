@@ -1,5 +1,5 @@
 use lib 't/lib';
-use Test::Monitis tests => 17, live => 1;
+use Test::Monitis tests => 21, live => 1;
 
 note 'Action addMonitor (custom_monitors->add)';
 
@@ -64,6 +64,27 @@ $response = api->custom_monitors->get_results(
 
 isa_ok $response, 'ARRAY', 'JSON response ok';
 is $response->[0]{position}, '3', 'status ok';
+
+my $addtime = time * 1000;
+note 'Action addAdditionalResults (custom_monitors->add_additional_results)';
+$response = api->custom_monitors->add_additional_results(
+    monitorId => $id,
+    checktime   => $addtime,
+    results   => [{position => 1, difference => 2}]
+);
+
+isa_ok $response, 'HASH', 'JSON response ok';
+is $response->{status}, 'ok', 'status ok';
+
+note 'Action getAdditionalResults (custom_monitors->get_additional_results)';
+$response = api->custom_monitors->get_additional_results(
+    monitorId => $id,
+    checktime   => $addtime
+);
+
+isa_ok $response, 'ARRAY', 'JSON response ok';
+is $response->[0]{position}, 1, 'position ok';
+
 
 note 'Action deleteMonitor (custom_monitors->delete)';
 $response = api->custom_monitors->delete(monitorId => $id);
