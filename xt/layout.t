@@ -1,5 +1,5 @@
 use lib 't/lib';
-use Test::Monitis tests => 18, live => 1, agent => 1;
+use Test::Monitis tests => 19, live => 1, agent => 1;
 
 my $unique_page_name = 'test page ';
 
@@ -44,7 +44,7 @@ like $response->{data}{testId}, qr/^\d+$/, 'API returned test id';
 my $monitor_id = $response->{data}{testId};
 
 SKIP: {
-    skip 'Monitor id required for this test', 5 unless $monitor_id;
+    skip 'Monitor id required for this test', 9 unless $monitor_id;
     $response = api->layout->add_module_to_page(
         moduleName   => 'CPU',
         pageId       => $page_id,
