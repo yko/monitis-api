@@ -12,18 +12,6 @@ my @locations = map { $_->{id} } @$response;
 
 note 'Action addExternalMonitor (external_monitors->add)';
 
-=head doesn't work
-$response = api->external_monitors->add(
-    type        => 'ping',
-    name        => 'test_test',
-    url         => 'google.com',
-    interval    => 5,
-    timeout     => 1000,
-    locationIds => 1,  # join(',', @locations[0, 1]),
-    tag         => 'test_from_api'
-);
-=cut
-
 $response = api->external_monitors->add(
     type               => 'http',
     name               => 'test_test',
@@ -35,7 +23,10 @@ $response = api->external_monitors->add(
     locationIds        => $locations[0],
     contentMatchFlag   => 1,
     contentMatchString => 'Google',
-    tag                => 'test_from_api'
+    tag                => 'test_from_api',
+    uptimeSLA          => 1,
+    basicAuthUser      => 'foo',
+    basicAuthPass      => 'bar'
 );
 isa_ok $response, 'HASH', 'JSON response ok';
 is $response->{status},   'ok',   'status ok';
@@ -57,7 +48,8 @@ SKIP: {
         url         => 'google.com',
         locationIds => join(',', @locations[0, 1, 2]),
         timeout     => 100,
-        tag         => 'test_from_api'
+        tag         => 'test_from_api',
+        responseSLA => 1
     );
 
     isa_ok $response, 'HASH', 'JSON response ok';
@@ -98,8 +90,10 @@ SKIP: {
 
     note 'Action testinfo (external_monitors->get_monitor_info)';
 
-    $response =
-      api->external_monitors->get_monitor_info(testId => $monitor_id);
+    $response = api->external_monitors->get_monitor_info(
+        testId   => $monitor_id,
+        timezone => '+3'
+    );
 
     isa_ok $response, 'HASH', 'JSON response ok';
 

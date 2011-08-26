@@ -1,6 +1,12 @@
 Revision history for Monitis
 
-0.92    Fri Aug 26 12:42:20 2011
+0.92    Fri Aug 26 12:46:14 2011
+        New optional parameters for external_monitors->add:
+            uptimeSLA, responseSLA, basicAuthUser, basicAuthPass
+        New optional parameters for external_monitors->exit:
+            uptimeSLA, responseSLA
+        New optional parameters for external_monitors->get_monitor_info:
+            timezone
 
 0.91    Wed Jul 13 11:59:54 2011
         improved live tests

@@ -12,8 +12,9 @@ sub add {
     my @mandatory = qw/type name url interval timeout locationIds tag/;
 
 # TODO: right checks for detailedTestType postData contentMatchFlag contentMatchString
-    my @optional =
-      qw/detailedTestType overSSL postData contentMatchFlag contentMatchString params/;
+    my @optional = qw/detailedTestType overSSL postData
+      contentMatchFlag contentMatchString params
+      uptimeSLA responseSLA basicAuthUser basicAuthPass/;
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
@@ -24,7 +25,7 @@ sub edit {
     my ($self, @params) = @_;
 
     my @mandatory = qw/testId name url locationIds timeout tag/;
-    my @optional  = qw/contentMatchString maxValue/;
+    my @optional  = qw/contentMatchString maxValue uptimeSLA responseSLA/;
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
@@ -80,7 +81,7 @@ sub get_monitor_info {
     my ($self, @params) = @_;
 
     my @mandatory = qw/testId/;
-    my @optional  = qw//;
+    my @optional  = qw/timezone/;
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
