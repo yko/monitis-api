@@ -55,7 +55,7 @@ sub delete {
     my ($self, @params) = @_;
 
     my @mandatory = qw//;
-    my @optional  = qw/monitorIds/;
+    my @optional  = qw/monitorId/;
 
     my $params = $self->prepare_params(\@params, \@mandatory, \@optional);
 
@@ -182,7 +182,7 @@ Normal response is:
 
 =head2 delete
 
-    $api->full_page_load_monitors->delete( monitorIds => 1234 );
+    $api->full_page_load_monitors->delete( monitorId => 1234 );
 
 Delete monitors.
 
