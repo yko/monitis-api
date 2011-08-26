@@ -41,6 +41,7 @@ our $MAPPING = {
     visitor_trackers        => 'VisitorTrackers',
     cloud_instances         => 'CloudInstances',
     top_results             => 'TopResults',
+    notifications           => 'Notifications',
 };
 
 our $MAPPING_LOADED = {};
